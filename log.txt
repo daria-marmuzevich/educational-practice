@@ -1,0 +1,11 @@
+commit 19bc58cdcc51d59463bc0dc6cba5996532e0436d
+Author: Daria <daria.marmuzevich@gmail.com>
+Date:   Wed Feb 10 16:37:52 2021 +0300
+
+    commit status.txt
+
+commit ddc41dfc6b812ea556a8ec8f8169ca215962b5f0
+Author: Daria <daria.marmuzevich@gmail.com>
+Date:   Wed Feb 10 16:32:52 2021 +0300
+
+    add .gitignore
