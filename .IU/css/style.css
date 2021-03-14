@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+
+}
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.site-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+.enter {
+    background-color: #f6b26b;
+    border:  0.069vw solid #cccccc;
+    border-radius: 0.694vw;
+    width: 12.292vw;
+    height: 2.708vw;
+    font-size: 1.111vw;
+    color: #444444;
+    margin-top: 2.083vw;
+    margin-left: 2.083vw;
+    cursor: pointer;
+    align-items: flex-end;
+}
+.enter:hover {
+    background-color: #f6b26b;
+    border: 0.069vw solid #cccccc;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4.167vw;
+}
+.order {
+    color: #ff9900;
+    size: 1.458vw;
+    font-size: 1.458vw;
+    padding-right: 0.694vw;
+
+}
+.filter {
+    margin-top: 2.083vw;
+    display: flex;
+    margin-bottom: 2.083vw;
+    width: 50%;
+    justify-content: space-around;
+    color: #ff9900;
+    size: 1.111vw;
+}
+.filter > h2 {
+    font-size: 1.111vw;
+}
+.filter-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    color: #333333;
+}
+.filter-btns > h2 {
+    font-size: 1.111vw;
+}
+.post {
+    margin-bottom: 1.111vw;
+}
+.publication{
+    color: #333333;
+    margin-left: 26.389vw;
+    font-size: 0.833vw;
+    text-align: left;
+}
+.post-text {
+    /*position: absolute;  Фиксированное положение */
+    right: 1.736vw; /* Расстояние от правого края окна браузера */
+    text-align: center;
+    padding: 1.736vw; /* Поля вокруг текста */
+
+
+}
+.post-footer {
+    position: absolute;
+    right: 59.375vw; /* Расстояние от правого края окна браузера */
+    text-align: center;
+}
+
+.uploade {
+    cursor: pointer;
+    margin-bottom: 2.083vw;
+}
+footer {
+    background-color: #f6b26b;
+    display: flex;
+    justify-content: space-around;
+    padding: 2.083vw 0;
+    align-items: center;
+}
+.hr-line {
+    margin: 1.389vw 0;
+    padding: 0;
+    height: 0;
+    border: none;
+    border-top: 0.069vw solid rebeccapurple;
+}
+
+.pic {
+    float: left; /* Обтекание картинки текстом */
+    margin-left: 22.569vw;
+}
+
+.text {
+    margin-left: 26.389vw;
+    text-align: left;
+    font-size: 1.042vw;
+    margin-right: 20.139vw;
+}
+#line {
+    border-bottom: 0.069vw  solid #f00; /* Параметры линии */
+
+}
+
+hr {
+
+    margin-left: 22.917vw;
+    margin-right: 20.139vw;
+    border-style: inset;
+    border-width: 0.069vw;
+}
+
+.like{
+    float: left; /* Обтекание картинки текстом */
+    margin-left: 24.736vw;
+    margin-top: 0px;
+    position: absolute;
+}
+
+hr1 {
+
+    margin-left: 22.917vw;
+    margin-right: 20.139vw;
+    background: transparent;
+}
+.hashtags{
+    position: absolute;
+    margin-left: 30.389vw;
+    text-align: left;
+    font-size: 1.042vw;
+    margin-right: 20.139vw;
+}
+
+
+
