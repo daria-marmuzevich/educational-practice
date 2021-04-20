@@ -172,6 +172,7 @@ class Work_with_posts{
             result.sort(function(a,b){
                 return new Date(b.createdAt) - new Date(a.createdAt);
             });
+
             return result.slice(skip, top+skip-1);
         } else {
             Posts.sort(function(a,b){
@@ -223,7 +224,7 @@ class Work_with_posts{
     }
 
 
-    editPost(id, Post){
+    edittPost(id, Post){
         if(this.validatePost(this.getPost(id)) && Work_with_posts.#has_id(id)){
             this.getPost(id).descriprion = Post.descriprion;
             return true;
@@ -252,48 +253,144 @@ class Work_with_posts{
 
 }
 
-a = new Work_with_posts(Posts);
-console.log("Первые 10 отсортированных постов")
-console.log(a.getPosts(0,10));
-console.log("10 отсортированных постов, пропуская первые 10")
-console.log(a.getPosts(10,10));
-console.log("Посты, автором которых является ‘Крыса’, отсортированные по дате создания")
-console.log(a.getPosts(0, 10, {author: 'Крыса @yesIamArat'}))
-console.log("пост из массива Posts с id=12")
-console.log(a.getPost(12))
 
-let new_post1={id: 21,
-        descriprion: 'новый пост',
-    createdAt: new Date(2021,3,4,21,26,0),
-    author: 'Йорк @york_dog'}
-console.log("Проверка поста на валидность")
-console.log(a.validatePost(new_post1))
-let new_post2={
-    id: '21',
-    descriprion: 'новый пост',
-    createdAt: new Date(2021,3,4,21,26,0),
-    author: 'Йорк @york_dog',
-    likes: []
+var a = new Work_with_posts(Posts);
+
+class Viewer {
+
+
+    Upload_posts() {
+        const containerEl = document.querySelector('.lenta');
+        const containerName = document.querySelector('.login');
+        const buttonCl = document.querySelector('.enter');
+        buttonCl.textContent = 'Выйти';
+        //containerName.textContent=name;
+        a.getPosts(0, 10).forEach((post) => {
+            containerEl.appendChild(this.buildPost(post));
+        });
     }
 
-console.log(a.validatePost(new_post2))
-console.log("Добавление нового поста в массив Posts")
-console.log(a.addPost(new_post1))
-console.log(a.addPost(new_post2))
 
-console.log("Изменение поста с id=1")
-a.editPost('1', { descriprion: 'Новая информация'});
-console.log("Удаление поста c id=3 из массива Posts")
-a.removePost('3')
-console.log(Posts)
 
-console.log("Добавление всех постов из массива в коллекцию")
-console.log(a.addAll(Posts))
+    Add_item() {
+        const containerEl = document.querySelector('.lenta');
 
-a.clear();
+        a.getPosts(1, 3).forEach((post) => {
+            containerEl.appendChild(buildPost(post));
+        });
+    }
 
 
 
+    Add_new_post(Post) {
+        a.addPost(Post);
+        const containerEl = document.querySelector('.lenta');
+        containerEl.appendChild(this.buildPost(Post));
+    }
 
 
 
+    Delete_post(id) {
+        a.removePost(id);
+        const containerEl = document.querySelector('.lenta');
+        const postEl = document.getElementById(id);
+        containerEl.removeChild(postEl);
+    }
+
+
+
+    Edit_post(id, changes) {
+        a.edittPost(id, changes);
+        var postEl = document.getElementById(id);
+        var description = postEl.querySelector('.text1');
+        if(changes.descriprion) {
+            description.textContent = changes.descriprion;
+        }
+    }
+
+    buildPost(post) {
+        const postEl = document.createElement('div');
+        postEl.innerHTML = `
+            <div class="post">
+            <div class="post-text">
+            <div class="publication">${post.author} </div>
+            <div class="text1">${post.descriprion}</div>
+            </div>
+            </div>
+            `;
+        postEl.id = post.id;
+        return postEl;
+    }
+}
+
+let b = new Viewer();
+
+// console.log("Первые 10 отсортированных постов")
+// console.log(a.getPosts(0,10));
+// console.log("10 отсортированных постов, пропуская первые 10")
+// console.log(a.getPosts(10,10));
+// console.log("Посты, автором которых является ‘Крыса’, отсортированные по дате создания")
+// console.log(a.getPosts(0, 10, {author: 'Крыса @yesIamArat'}))
+// console.log("пост из массива Posts с id=12")
+// console.log(a.getPost(12))
+//
+// let new_post1={id: 21,
+//         descriprion: 'новый пост',
+//     createdAt: new Date(2021,3,4,21,26,0),
+//     author: 'Йорк @york_dog'}
+// console.log("Проверка поста на валидность")
+// console.log(a.validatePost(new_post1))
+// let new_post2={
+//     id: '21',
+//     descriprion: 'новый пост',
+//     createdAt: new Date(2021,3,4,21,26,0),
+//     author: 'Йорк @york_dog',
+//     likes: []
+//     }
+//
+// console.log(a.validatePost(new_post2))
+// console.log("Добавление нового поста в массив Posts")
+// console.log(a.addPost(new_post1))
+// console.log(a.addPost(new_post2))
+//
+// console.log("Изменение поста с id=1")
+// a.editPost('1', { descriprion: 'Новая информация'});
+// console.log("Удаление поста c id=3 из массива Posts")
+// a.removePost('3')
+// console.log(Posts)
+//
+// console.log("Добавление всех постов из массива в коллекцию")
+// console.log(a.addAll(Posts))
+//
+// a.clear();
+//
+//
+// let msg = document.createElement('msg')
+// msg.classList.add('list', 'posts');
+// Posts.forEach(post => {
+//     const li = document.createElement('li');
+//     const card = document.createElement('div');
+//     card.classList.add('card');
+//     li.appendChild(card);
+//     const cardContent = document.createElement('div');
+//     cardContent.classList.add('card-content');
+//     card.appendChild(cardContent);
+//     const content = document.createElement('div');
+//     content.classList.add('content');
+//     cardContent.appendChild(content);
+//     const name = document.createElement('div');
+//     name.classList.add('name');
+//     name.textContent = post.author;
+//     cardContent.appendChild(name);
+//     const description = document.createElement('div');
+//     description.classList.add('description');
+//     description.textContent = post.description;
+//     cardContent.appendChild(description);
+//     msg.appendChild(li);
+// });
+//
+// const section = document.getElementById('section');
+// const new_element = document.createElement('msg');
+// new_element.innerHTML = 'Yjdhffhggg';
+// const main = document.getElementById('main');
+// console.log(main)

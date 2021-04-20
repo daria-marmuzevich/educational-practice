@@ -13,8 +13,12 @@ body {
 }
 .site-header {
     position: fixed;
+    background-color: white;
     width: 100%;
     top: 0;
+}
+.main_string{
+    display: flex;
 }
 .enter {
     background-color: #f6b26b;
@@ -24,10 +28,31 @@ body {
     height: 2.708vw;
     font-size: 1.111vw;
     color: #444444;
-    margin-top: 2.083vw;
-    margin-left: 2.083vw;
+    margin-top: 0.783vw;
+    margin-left: 840px;
     cursor: pointer;
     align-items: flex-end;
+}
+.login_button{
+    background-color: white;
+    border:  0.069vw solid #f6b26b;
+    border-radius: 0.694vw;
+    width: 12.292vw;
+    height: 2.2vw;
+    font-size: 1.111vw;
+    margin-top: 5px;
+    margin-left: 840px;
+    cursor: pointer;
+    align-items: flex-end;
+    color: #f6b26b;
+}
+.login{
+    display: inline-block;
+    margin-left: 840px;
+    color: #ff9900;
+    size: 1.458vw;
+    font-size: 1.458vw;
+    padding-right: 0.694vw;
 }
 .enter:hover {
     background-color: #f6b26b;
@@ -47,7 +72,7 @@ main {
 
 }
 .filter {
-    margin-top: 2.083vw;
+    margin-top: 15.083vw;
     display: flex;
     margin-bottom: 2.083vw;
     width: 50%;
@@ -84,6 +109,12 @@ main {
 
 
 }
+.text1 {
+    margin-left: 26.389vw;
+    text-align: left;
+    font-size: 1.042vw;
+    margin-right: 20.139vw;
+}
 .post-footer {
     position: absolute;
     right: 59.375vw; /* Расстояние от правого края окна браузера */
@@ -92,6 +123,7 @@ main {
 
 .uploade {
     cursor: pointer;
+    margin-top: 20px;
     margin-bottom: 2.083vw;
 }
 footer {
@@ -114,12 +146,7 @@ footer {
     margin-left: 22.569vw;
 }
 
-.text {
-    margin-left: 26.389vw;
-    text-align: left;
-    font-size: 1.042vw;
-    margin-right: 20.139vw;
-}
+
 #line {
     border-bottom: 0.069vw  solid #f00; /* Параметры линии */
 
